@@ -3,7 +3,7 @@
 -----
 ## SQL
   * 한단원요약+주석 
-    1. [테이블과 데이터 그리고 조작](sql/index/1.Data_and_commend)   
+    1. [테이블과 데이터 그리고 조작](sql/index/1.Data_and_commend.md)   
   * 모르겠는것
   * 그때 또 찾아볼것
   
