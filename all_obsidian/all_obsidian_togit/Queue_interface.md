@@ -6,5 +6,5 @@
 - 예시: 최근사용문서, 인쇄작업대기목록,버퍼
 - [[PriorityQuee]]
 - [[BlockingQueue]]
-- [[Deque인터페이스]]: queue의 자손
+- [[Deque_interface]]: queue의 자손
 #list 

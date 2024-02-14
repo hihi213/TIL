@@ -1,6 +1,6 @@
 
--[[ ArrayList클래스]]
--[[ LinkedList클래스]]
+-[[ArrayList_class]]
+-[[LinkedList_class]]
 	- Queue인터페이스(LinkedList클래스가 구현)
-- [[Vector클래스]]
+- [[Vector_class]]
 	- Stack클래스

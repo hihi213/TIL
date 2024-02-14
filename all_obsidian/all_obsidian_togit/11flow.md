@@ -1,4 +1,4 @@
-11장의 흐름은 다음과 같다
+11장의 흐름은 다음과 
 	1.  컬렉션 프레임웍이란 
 		- 컬렉션 클래스 : 여러 객체(데이터)를 모아놓은 클래스 
 		- 프레임웍 :다양한 컬렉션 클래스들을 표준화된 프로그래밍 방식으로 다루는것
@@ -18,12 +18,12 @@
 			list:	ArrayList LinkedList Vector Stack 클래스 Queue 인터페이스
 			set: 	Hashset LinkedHashSet TreeSet 클래스
 			map:  HashMap Properties LinkedHashMap TreeMap 클래스
-6.  Vector클래스, 보완한게 [[ArrayList클래스]] 이걸 보완한게 [[LinkedList클래스]]  그리고 LinkedLIst가 list말고도 구현한  [[Queue인터페이스]] 와 vector를 상속받은 [[Stack클래스]]
-1. [[Hashset클래스]] , [[LinkedHashSet클래스]], [[TreeSet클래스]]
-2. [[HashMap클래스]] , [[Properties클래스]] , [[LinkedHashMap클래스]] , [[TreeMap클래스]]
-3. 그리고 이 모든 클래스에 적용가능한 있는거 다 뱉어 [[Iterator클래스]]
+6.  Vector클래스, 보완한게 [[ArrayList_class]] 이걸 보완한게 [[LinkedList_class]]  그리고 LinkedLIst가 list말고도 구현한  [[Queue_interface]] 와 vector를 상속받은 [[Stack_class]]
+1. [[Hashset_class]] , [[LinkedHashSet_class]], [[TreeSet_class]]
+2. [[HashMap_class]] , [[Properties_class]] , [[LinkedHashMap_class]] , [[TreeMap_class]]
+3. 그리고 이 모든 클래스에 적용가능한 있는거 다 뱉어 [[Iterator_class]]
 4. comparator와 comparable이다.
-5. 이제 [[컬렉션클래스간의 비교]]를 들면
+5. 이제 [[vs]]를 들면
 
 
 
