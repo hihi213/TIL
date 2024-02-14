@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임.md",
+                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임웍.md",
                 "mode": "source",
                 "source": false
               }
@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임.md",
+                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임웍.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임.md",
+                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임웍.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임.md"
+                "file": "all_obsidian/all_obsidian_togit/컬렉션프레임웍.md"
               }
             }
           }
@@ -144,9 +143,10 @@
       "canvas:새 캔버스 만들기": false,
       "daily-notes:오늘의 데일리 노트 열기": false,
       "templates:템플릿 삽입": false,
-      "command-palette:명령어 팔레트 열기": false
+      "command-palette:명령어 팔레트 열기": false,
+      "markdown-importer:마크다운 형식 가져오기 열기": false
     }
   },
-  "active": "efea070916dbb470",
+  "active": "c0ae25d683de8a78",
   "lastOpenFiles": []
 }
