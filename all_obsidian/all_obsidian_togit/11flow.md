@@ -16,7 +16,7 @@
 	4. 데이터 저장방식의 공통점으로 list set인터페이스가 collection 인터페이스로 묶인다 .
 	5. 아무튼 이를 구현한, 구현한 인터페이스의 성격을 가지고 있는 컬렉션 클래스들을 살펴보면,
 			list:	ArrayList LinkedList Vector Stack 클래스 Queue 인터페이스
-			set: 	Hashset LinkedHashSet TreeSet 클래스
+			set: Hashset LinkedHashSet TreeSet 클래스
 			map:  HashMap Properties LinkedHashMap TreeMap 클래스
 6.  Vector클래스, 보완한게 [[ArrayList_class]] 이걸 보완한게 [[LinkedList_class]]  그리고 LinkedLIst가 list말고도 구현한  [[Queue_interface]] 와 vector를 상속받은 [[Stack_class]]
 1. [[Hashset_class]] , [[LinkedHashSet_class]], [[TreeSet_class]]
