@@ -53,3 +53,7 @@ Temporary Items
 # Ignore all local history of files
 .history
 .ionide
+.idea/misc.xml
+.idea/modules.xml
+.idea/TIL.iml
+.idea/vcs.xml
