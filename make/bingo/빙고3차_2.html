@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빙고판</title>
+    <style>
+        /*기본세팅*/
+        @import url('https://fonts.googleapis.com/css2?family=Diphylleia&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /*크기 재는 기준*/
+            font-family: 'Diphylleia', serif;
+            text-align: center;
+        }
+
+        body {
+            width: 100%;
+            /*div 넓이 나누기위해서*/
+            height: 100vh;
+            position: absolute;
+            /*div1,2위치 분리 위해서*/
+            overflow: hidden;
+            width: 100%;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <style>
+        /*공통부분조절 div,header,section,footer,bingoborad*/
+        .div {
+            /*----------칸나누기----------*/
+            width: 50%;
+            /*body 절반넓이를 가지는 div*/
+            height: 100vh;
+            /*----------가운데 정렬할려고 묶음----------*/
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 2px solid black;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            width: 100%;
+            height: 10vh;
+            /*--------------------*/
+            font-size: 4vw;
+            padding: 2%;
+        }
+
+        .bingoboard {
+            width: 80%;
+            height: 64vh;
+            aspect-ratio: 1/ 1;
+            /*--------------------*/
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            align-self: center;
+            overflow: hidden;
+            /*--------------------*/
+            font-size: 3vW;
+        }
+
+        .footer {
+            width: 100%;
+            height: 25vh;
+            /*--------------------*/
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-self: center;
+        }
+
+        .footerbox {
+            width: 40%;
+            height: 90%;
+            font-size: 3vW;
+            padding: 1%;
+        }
+
+        .button {
+            width: 100%;
+            height: 50%;
+            font-size: 2vW;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background-color: grey;
+        }
+    </style>
+    <style>
+        /*개별부분조절 div,header,section,footer,bingoboard1,2*/
+        /*개별부분조절 div*/
+        #div1 {
+            /*div1 왼쪽에 두기*/
+            position: relative;
+            float: left;
+            /*--------------------*/
+            background-color: grey;
+        }
+
+        #div2 {
+            /*div2 오른쪽에 두기*/
+            position: relative;
+            float: right;
+            /*--------------------*/
+        }
+
+        /*개별부분조절 header*/
+        /*개별부분조절 section*/
+        /*개별부분조절 footer*/
+
+        /*개별부분조절 bingobard*/
+    </style>
+    <style>
+        .nobody {
+            width: 20%;
+        }
+
+        .select {
+            background-color: black;
+            width: 20%;
+        }
+
+        .player1 {
+            background-color: blueviolet;
+            width: 20%;
+        }
+
+        .player2 {
+            background-color: blue;
+            width: 20%;
+        }
+
+        .youbingo,
+        .timebox {
+            height: 50%;
+            justify-content: center;
+            padding: 5%;
+        }
+
+        .bingoboard {
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            align-self: center;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1" class="div">
+        <header id="header1" class="header">
+        </header>
+        <table border="1" class="bingoboard">
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+        </table>
+        <footer id="footer1" class="footer">
+            <span class="footerbox">
+                <p class="timebox"></p>
+                <p class="youbingo">빙고수: 0</p>
+            </span>
+            <span>
+                <button class="button">
+                    확정하기
+                </button>
+                <button class="button">
+                    턴넘기기
+                </button>
+            </span>
+        </footer>
+    </div>
+    <div id="div2" class="div">
+        <header id="header2" class="header">
+        </header>
+        <table border="1" class="bingoboard">
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+            <tr class="row"></tr>
+        </table>
+        <footer class="footer">
+            <span class="footerbox">
+                <p class="timebox"></p>
+                <p class="youbingo">빙고수: 0</p>
+            </span>
+            <span>
+                <button class="button">
+                    확정하기
+                </button>
+                <button class="button">
+                    턴넘기기
+                </button>
+            </span>
+        </footer>
+    </div>
+    <script>
+        function everytag(a){
+        return document.querySelectorAll(a)
+        }
+
+        divs = document.getElementsByClassName('div');
+        buttons = everytag('button');//버튼1=왼확정 버튼2=왼넘겨 버튼3=오확정 버튼4=오넘겨
+        trs = everytag('tr');
+        Headers = everytag('header');
+        timebox = everytag('.timebox');
+        youbingo = everytag('.youbingo');
+        bingoboard = everytag('.bingoboard');
+        이김 = ["url('이김1.jpg')", "url('이김2.jpeg')", "url('이김3.png')", "url('이김4.jpg')", "url('이김5.jpeg')", "url('이김6.jpg')"]
+        짐 = ["url('짐1.jpeg')", "url('짐2.webp')", "url('짐3.webp')", "url('짐4.jpeg')", "url('짐5.jpg')", "url('짐6.jpeg')", "url('짐7.webp')", "url('짐8.jpg')"]
+        n = 0;
+        rowcounter = [[0, 0, 0, 0], [0, 0, 0, 0]];
+        bingonum = [0, 0];
+        selectbutton = [buttons[2], buttons[3]];
+        //     1.처음에는 메인화면이랑 버튼3만보이게 
+        //     2.두테이블에 숫자를 넣어주기
+        let t = 0;
+        count = 10
+        
+        //td객체25개의 주소가 저장된 3차원배열 beforetd를 만든다
+        beforetd = [makearr(), makearr()];
+        function makearr() {
+            var arr = [];
+            for (let i = 0; i < 5; i++) {
+                arr[i] = new Array();
+                for (let j = 0; j < 5; j++) {
+                    arr[i][j] = document.createElement('td');
+                    arr[i][j].setAttribute('class', 'nobody')//기본설정이자 확정안된 친구들 구별용
+                }
+            }
+            return arr;
+        }
+
+        //beforetd는 모두 인덱스가아닌 foreach를 통해 요소를 접근해야함
+        //숫자넣자~
+        numbers = []
+        for (let i = 0; i < 25; i++) {
+            numbers[i] = i + 1;
+        }
+
+        beforetd.forEach((element) => {
+            //숫자 섞어서 넣자~~
+            numbers.sort((a, b) => { return Math.random() - 0.5 });
+
+            element.forEach((row, index1) => {
+                row.forEach((td, index2) => {
+                    //순서대로 숫자를 넣는다
+                    td.innerHTML = numbers[index1 * 5 + index2];
+                    trs[t].appendChild(td);
+                });
+                ++t;
+            })
+        });
+
+        //오른쪽 빙고판 버튼만 활성화
+        beforestart();
+        
+        function beforestart() {
+            divs[0].style.visibility = "hidden"
+            divs[1].style.visibility = "hidden"
+            setimage("body","url('메인화면.jpg')" )
+            buttons[2].style.visibility = "visible"
+            buttons[2].innerHTML = "시작하기"
+        }
+        function setimage(a,b){
+            if(a=="body"){document.body.style.backgroundImage=b}
+        }
+        buttons[2].onclick = () => {
+                console.log(3)
+                setimage("body", "url('배경1.jpg')");
+                buttons[2].innerHTML = "확정하기"
+                buttons[2].style.visibility = "hidden"
+                setTimeout(() => {
+                    setimage("body", "url('배경2.jpg')")
+                }, 1000)
+                setTimeout(() => {
+                    setimage("body","url('배경3.jpg')" )
+                }, 2000)
+                setTimeout(() => {
+                    divs[0].style.visibility = "visible"
+                    divs[1].style.visibility = "visible"
+                    buttons[2].style.visibility = "visible"
+                    setimage("body", "" );
+                    doing();
+                }, 3000)
+                buttons[2].onclick=null  //연결제거
+        }
+        function doing() {
+            toright();
+            count = 10
+            setInterval(() => {
+                if (count >= -1) {
+                    count = count - 1;
+                    settime();
+                }
+                else{endtime();}
+            }, 1000)
+        }
+
+        function settime() {
+            if (selectbutton[0] === buttons[0]) {//왼쪽 활성화 상태라면
+                num = 0;
+            }
+            else {
+                num = 1;
+            }
+            timebox[num].innerHTML = count + "초";
+        }
+
+
+        beforetd.forEach((hey, a) => {
+            hey.forEach(row => {
+                row.forEach(td => {
+                    td.addEventListener('click', (event) => {
+                        if ('nobody' == event.target.getAttribute("class") //nobody인것만 선택되게
+                        ) {
+                            let selected = everytag('.select');
+                            selected.forEach((elem) => {
+                                elem.classList.remove('select');//선택 여러개 방지
+                                elem.setAttribute('class', 'nobody')//클래스가 select였다가 삭제된거 nobody 다시넣어
+                            });
+                            event.target.setAttribute('class', 'select')
+                            //console.log(event)
+                            seekanother(a, event.target.innerHTML, 'select');
+                        }
+                    });
+                });
+            });
+        })
+        function seekanother(number, text, atr) {
+            let thing
+            beforetd[1 - number].forEach((row) => {
+                row.forEach((td) => {
+                    if (text == td.innerHTML) {
+                        set_Attribute(td, atr)
+                        thing = td;
+                        return thing
+                    }
+                });
+            });
+            //JavaScript 함수에서 반환이 되지 않는 이유는 return 문이 forEach 함수의 콜백 함수 안에 있기 때문입니다. 
+            //forEach 함수의 콜백 함수는 일반적인 반복문과는 다르게 반환문이 외부 함수까지 영향을 주지 않습니다.
+            //그럼 지역함수를 만들어서 저장후 함수끝난뒤 반환하자.
+        }
+        function search(a) {
+            let searched = []; //이 메서드를 통해서만 접근,갱신가능
+            searched[0] = divs[0].querySelector(a);
+            searched[1] = divs[1].querySelector(a);
+            return searched;
+        }
+
+        function set_Attribute(a, b) {
+            a.setAttribute('class', b)
+        }
+
+
+        //     //2.만약에 버튼을 누른경우 
+        buttons.forEach((ele, index) => {
+            ele.addEventListener('click', (event) => {
+                if ((event.target == selectbutton[0] || event.target == selectbutton[1]) && count > 0) {
+                    //selectbutton.foreach했다가 버튼 안넘겨져서 조건문으로 추가함
+                    let selected = search('.select')//이 함수내에서만 사용
+                    let nobody = search('.nobody')
+                    let who;
+                    let num;
+                    if (selectbutton[0] == buttons[0]) {
+                        //왼쪽 활성화 상태라면
+                        who = ['player1', 'player2']
+                        header = Headers[0]
+                        num = 0;
+                    }
+                    else {
+                        who = ['player2', 'player1']
+                        header = Headers[1]
+                        num = 1;
+                    }
+                    if (index % 2 || selected[num] != null) {//버튼이 눌렸다면 넘기기
+                        count = 1;// 다음차례로 순서가 넘어간다
+                    }
+                    else {
+                        //확정버튼인데 선택한게 없다면 헤더에 선택하고 확정하라는 글씨만 나온다
+                        header.innerHTML = "선택후 확정하세요"
+                        header.style.backgroundColor = "red"
+                        setTimeout(() => {
+                            header.innerHTML = ""
+                            header.style.backgroundColor = ""
+                        }, 900)
+                    }
+                }
+            })
+        })
+        // 루틴 2: count<0인경우 
+        function endtime() {
+            if (count <= 0) {
+                yourturn()
+                let selected = search('.select')//이 함수내에서만 사용
+                let nobody = search('.nobody')
+                let num;
+                let who
+                if (selectbutton[0] === buttons[0]) {//왼쪽 활성화 상태라면
+                    num = 0;
+                    who = ['player1', 'player2']
+                }
+                else {
+                    num = 1
+                    who = ['player2', 'player1']
+                }
+
+                //     시간대신에 Pass라는 글자가 나오게 하기
+                //     1.선택 마무리하기
+                if (selected[num] == null) {//선택이 안되어있는 상태라면
+                    set_Attribute(nobody[num], who[0]) //아무거나
+                    another = seekanother(num, nobody[num].innerHTML, who[1])
+                    findbingo(nobody[num], another);
+                }
+                else {//선택이 되어있으면 선택된걸로 확정시키기
+                    set_Attribute(selected[num], who[0]);
+                    set_Attribute(selected[1 - num], who[1]);
+                    findbingo(selected[num], selected[1 - num]);
+                }
+
+                //     2.settimeout 0.2 확정하기
+                //     3.settimeout 0.4초뒤에 빙고인지 확인하기
+                //     //빙고확인
+                //         //만약빙고가 3개이상이라면 게임종료
+                //         //아니라면 턴을 넘긴다 
+                count = 10; //count를 초기화한다
+                settime();
+
+            }
+        }
+        function findbingo(element, another) {//새로 확정된것 기준으로만 살피면 된다
+            console.log(element, another)
+            //내진영에서 확정된것들(player,bingo)기준에서 가로,세로 그리고 대각선2곳 살피면 됨
+            //대각선: 합이 4인게 5개면 빙고 i==j인게 5개면 빙고
+            beforetd.forEach((player, a) => {
+                rowcounter[a][0] = 0;
+                rowcounter[a][1] = 0;
+
+                player.forEach((row, i) => {
+                    row.forEach((column, j) => {
+                        if (column === element || another === column) {//element의 열과행 알아내기
+                            //console.log(i,j)
+                            if (i == j) {//elseif조심                              
+                                ++rowcounter[a][2];
+                            }
+                            if ((i + j) == 4) {
+                                ++rowcounter[a][3];
+                            }
+                            for (let k = 0; k < 5; k++) {
+                                if (beforetd[a][k][j].getAttribute("class") !== 'nobody') {//가로줄 빙고인지 세기..
+                                    ++rowcounter[a][0]
+                                }
+                                if (beforetd[a][i][k].getAttribute("class") !== 'nobody') {
+                                    ++rowcounter[a][1]
+                                }
+                            }
+
+                            //이제 빙고개수를 세보자^^
+                            for (let i = 0; i < 5; i++) {
+                                if (rowcounter[a][i] == 5) {
+                                    console.log(a)
+                                    ++bingonum[a];
+                                    rowcounter[a][i] = 0;
+                                    for (let i = 0; i < trs.length; i++) {
+                                        trs[i].style.visibility = "hidden"
+                                    }
+                                    bingoboard[a].style.backgroundImage = 이김[n]
+                                    bingoboard[1 - a].style.backgroundImage = 짐[n]
+
+                                    youbingo[a].innerHTML = "빙고!!!!!"
+                                    timebox[a].innerHTML=""
+                                    ++n
+                                    setTimeout(() => {
+                                        
+                                        bingoboard[a].style.backgroundImage = ""
+                                        bingoboard[1 - a].style.backgroundImage = ""
+                                        for (let i = 0; i < trs.length; i++) {
+                                            trs[i].style.visibility = "visible"
+                                        }
+                                        youbingo[a].innerHTML = "빙고수: " + bingonum[a]
+                                    }, 2500)
+                                }
+                            }
+                        }
+                    })
+                })
+            })
+            //console.log(bingonum[0], bingonum[1])
+            if (bingonum[0] > 2) {
+                window.alert("player1" + "승리")
+            }
+            if (bingonum[1] > 2) {
+                window.alert("player2" + "승리")
+            }
+        }
+        function yourturn() { //생각해보면 그냥 이벤트는 유지하되 버튼만 바꾸면 되는거 아니냐?
+            if (selectbutton[0] == buttons[0]) { //왼쪽이 활성화되었을떄 
+                toright();
+            }
+            else {//오른쪽이 활성화 되었을때
+                toleft();
+            }
+        }
+        function toright() {
+            selectbutton[0] = buttons[2];
+            selectbutton[1] = buttons[3];
+            divs[0].style.backgroundColor = 'gray';
+            divs[1].style.backgroundColor = 'white';
+        }
+        function toleft() {
+            selectbutton[0] = buttons[0];
+            selectbutton[1] = buttons[1];
+            divs[1].style.backgroundColor = 'gray';
+            divs[0].style.backgroundColor = 'white';
+        }
+    </script>
+</body>
+
+</html>
